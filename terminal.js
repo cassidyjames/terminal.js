@@ -10,7 +10,7 @@ function runTerminal($terminal) {
 }
 
 function runTerminalLine($line, $terminal, $delay) {
-  if( $line.data('terminalTime').length ) {
+  if( $line.is("[data-terminal-time]") ) {
     $delay = parseInt($line.data('terminalTime'));
   }
   if( $line.data('terminalMessage') == "prompt" ) {
