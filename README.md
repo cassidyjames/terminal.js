@@ -5,6 +5,13 @@ This is a project I wrote for System76 (used at [system76.com/laptops/galago](ht
 
 ## Data Attributes
 
+On the container:
+
+* `data-terminal-prompt`
+ * string: Prepend each prompt line, i.e. `"system76@Galago-UltraPro:~$ "`
+
+On each span:
+
 * `data-terminal`
   * string `"text"` (default): type out the message on the currently-last line
   * string `"line"`: echo the whole line at once on a new line
