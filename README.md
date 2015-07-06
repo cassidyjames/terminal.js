@@ -28,6 +28,6 @@ On each span:
 
 ## Featured at:
 
-* system76.com/laptops/galago
-* system76.com/servers
-* snwh.org/fsck/
+* [system76.com/laptops/galago](https://system76.com/laptops/galago)
+* [system76.com/servers](https://system76.com/servers)
+* [snwh.org/fsck/](http://snwh.org/fsck/)
