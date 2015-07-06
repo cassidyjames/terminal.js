@@ -6,8 +6,8 @@ This is a project I wrote for System76 (used at [system76.com/laptops/galago](ht
 ## Data Attributes
 
 * `data-terminal`
-  * `text` (default): type out the message on the currently-last line
-  * `line`: echo the whole line at once on a new line
+  * string `"text"` (default): type out the message on the currently-last line
+  * string `"line"`: echo the whole line at once on a new line
 * `data-terminal-message`: 
   * string: the text to output
 * `data-terminal-time`
