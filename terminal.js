@@ -10,11 +10,11 @@ function runTerminal($terminal) {
 }
 
 function runTerminalLine($line, $terminal, $delay) {
-  if( $line.data('terminalMessage') == "prompt" ) {
-    $line.data('terminalMessage', $terminal.data('terminalPrompt'));
-  }
   if( $line.data('terminalTime').length ) {
     $delay = parseInt($line.data('terminalTime'));
+  }
+  if( $line.data('terminalMessage') == "prompt" ) {
+    $line.data('terminalMessage', $terminal.data('terminalPrompt'));
   }
   if( $line.data('terminal') == "line" ) {
     setTimeout(function () {
