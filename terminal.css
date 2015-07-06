@@ -12,7 +12,6 @@
 
 #terminal,
 .terminal{
-	padding: 2em 0;
 	background-color: #300a24;
 
 	color: white;
@@ -35,7 +34,6 @@
 	display: block;
 	max-width: 1160px;
 	margin: 0 auto;
-	padding-left: 2rem;
 }
 
 #terminal .output .line:last-child::after,

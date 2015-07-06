@@ -10,39 +10,92 @@
 		<link href="terminal.css" rel="stylesheet" />
 		<script src="https://cdn.jsdelivr.net/g/jquery"></script>
 		<script src="terminal.js"></script>
+
+		<style>
+			/* Demo CSS for the window, not needed for the basic terminal.js */
+			html,
+			body{
+				background-color: #eee;
+				color: #333;
+				font-family: Ubuntu, sans-serif;
+			}
+
+			body{
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			#terminal-window{
+				max-width: 1000px;
+				margin: 1em auto;
+				box-shadow: 0 12px 24px rgba(0,0,0,.66);
+			}
+
+			#terminal-window::before{
+				content: "system76@Galago-UltraPro: ~";
+				color: #dfdbd2;
+				font-weight: bold;
+				font-size: 14px;
+
+				padding-top: 6px;
+				padding-left: 12px;
+
+				max-width: 1000px;
+				display: block;
+				height: 22px;
+
+				background-color: #3c3b37;
+				background-image: linear-gradient(to bottom, #59574f, #3f3e3a);
+				box-shadow: 0 1px 0 #58574e inset,
+					         0 2px 0 #626055 inset;
+
+				border-radius: 6px 6px 0 0;
+			}
+
+			#terminal{
+				padding: 2px;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="terminal" data-terminal-prompt="system76@Galago-UltraPro:~$ ">
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="0"></span>
-			<span data-terminal="text" data-terminal-message='echo -e "\nVirtualize the cloud on your Galago UltraPro.\n"' data-terminal-time="1000"></span>
-			<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="4000"></span>
-			<span data-terminal="line" data-terminal-message="Virtualize the cloud on your Galago UltraPro." data-terminal-time="1"></span>
-			<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="1"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="100"></span>
-			<span data-terminal="text" data-terminal-message="juju deploy mysql" data-terminal-time="300"></span>
-			<span data-terminal="line" data-terminal-message='Added charm "cs:trusty/mysql-5" to the environment.' data-terminal-time="1700"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="1000"></span>
-			<span data-terminal="text" data-terminal-message="juju deploy mediawiki" data-terminal-time="300"></span>
-			<span data-terminal="line" data-terminal-message='Added charm "cs:trusty/mysql-5" to the environment.' data-terminal-time="2100"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="1000"></span>
-			<span data-terminal="text" data-terminal-message="juju add-relation mysql mediawiki:db" data-terminal-time="300"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="3600"></span>
-			<span data-terminal="text" data-terminal-message="juju expose mediawiki" data-terminal-time="300"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="2100"></span>
-			<span data-terminal="text" data-terminal-message="juju deploy memcached" data-terminal-time="300"></span>
-			<span data-terminal="line" data-terminal-message='Added charm "cs:trusty/memcached-1" to the environment.' data-terminal-time="2100"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="300"></span>
-			<span data-terminal="text" data-terminal-message="juju add-relation memcached mediawiki" data-terminal-time="300"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="3700"></span>
-			<span data-terminal="text" data-terminal-message='echo -e "\nThat&rsquo;s it! Virtualize and hack the cloud locally in seconds.\n"' data-terminal-time="500"></span>
-			<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="5000"></span>
-			<span data-terminal="line" data-terminal-message="That&rsquo;s it! Virtualize and hack the cloud locally in seconds." data-terminal-time="1"></span>
-			<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="1"></span>
-			<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="1"></span>
+		<h1>Terminal.js</h1>
+		<span class="subtitle">A simple emulated terminal output plugin.</span>
 
-			<div class="output"></div>
+		<button onclick="runTerminal($('#terminal')); this.disabled = true;">Run</button>
+
+		<div id="terminal-window">
+			<div id="terminal" data-terminal-prompt="system76@Galago-UltraPro:~$ ">
+				<span data-terminal="text" data-terminal-message='echo -e "\nVirtualize the cloud on your Galago UltraPro.\n"' data-terminal-time="0"></span>
+				<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="4000"></span>
+				<span data-terminal="line" data-terminal-message="Virtualize the cloud on your Galago UltraPro." data-terminal-time="1"></span>
+				<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="1"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="100"></span>
+				<span data-terminal="text" data-terminal-message="juju deploy mysql" data-terminal-time="300"></span>
+				<span data-terminal="line" data-terminal-message='Added charm "cs:trusty/mysql-5" to the environment.' data-terminal-time="1700"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="1000"></span>
+				<span data-terminal="text" data-terminal-message="juju deploy mediawiki" data-terminal-time="300"></span>
+				<span data-terminal="line" data-terminal-message='Added charm "cs:trusty/mysql-5" to the environment.' data-terminal-time="2100"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="1000"></span>
+				<span data-terminal="text" data-terminal-message="juju add-relation mysql mediawiki:db" data-terminal-time="300"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="3600"></span>
+				<span data-terminal="text" data-terminal-message="juju expose mediawiki" data-terminal-time="300"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="2100"></span>
+				<span data-terminal="text" data-terminal-message="juju deploy memcached" data-terminal-time="300"></span>
+				<span data-terminal="line" data-terminal-message='Added charm "cs:trusty/memcached-1" to the environment.' data-terminal-time="2100"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="300"></span>
+				<span data-terminal="text" data-terminal-message="juju add-relation memcached mediawiki" data-terminal-time="300"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="3700"></span>
+				<span data-terminal="text" data-terminal-message='echo -e "\nThat&rsquo;s it! Virtualize and hack the cloud locally in seconds.\n"' data-terminal-time="500"></span>
+				<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="5000"></span>
+				<span data-terminal="line" data-terminal-message="That&rsquo;s it! Virtualize and hack the cloud locally in seconds." data-terminal-time="1"></span>
+				<span data-terminal="line" data-terminal-message="&nbsp;" data-terminal-time="1"></span>
+				<span data-terminal="line" data-terminal-message="prompt" data-terminal-time="1"></span>
+
+				<div class="output">
+					<span class="line">system76@Galago-UltraPro:~$ </span>
+				</div>
+			</div>
 		</div>
 
-		<script>runTerminal($('#terminal'))</script>
 	</body>
 </html>
