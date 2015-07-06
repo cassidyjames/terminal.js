@@ -5,6 +5,8 @@ This is a project I wrote (and [@funnylookinhat](https://github.com/funnylookinh
 
 Then just `runTerminal()` on a jQuery object to kick it off, i.e. `runTerminal($('#terminal'))`.
 
+See [terminal.mustache](https://github.com/cassidyjames/terminal.js/blob/master/terminal.mustache) for example HTML.
+
 ## Data Attributes
 
 On the container:
