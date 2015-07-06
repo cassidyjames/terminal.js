@@ -1,5 +1,7 @@
 /* terminal.js Sass by Cassidy James <c@ssidyjam.es> for System76.com */
 
+/* Terminal styling */
+
 @keyframes cursor {
   0%, 50% {
     opacity: 1;
@@ -12,14 +14,14 @@
 
 #terminal,
 .terminal{
-	padding:          2em 0;
-	background-color: $terminal-purple;
+	padding: 2em 0;
+	background-color: #300a24;
 
-	color:       white;
-	font-family: $font-family-mono;
-	font-size:   rem-calc(14px);
+	color: white;
+	font-family: "Ubuntu Mono", mono;
+	font-size: rem-calc(14px);
 	line-height: 125%;
-	text-align:  left;
+	text-align: left;
 
 	.output{
 		min-height: rem-calc(320px);
@@ -28,20 +30,18 @@
 		overflow: hidden;
 
 		.line{
-			display:      block;
-			max-width:    rem-calc(1160px);
-			margin:       0 auto;
+			display: block;
+			max-width: rem-calc(1160px);
+			margin: 0 auto;
 			padding-left: 2rem;
 
 			&:last-child::after{
 				content: "▮";
 
-				animation-name:            cursor;
+				animation-name: cursor;
 				animation-iteration-count: infinite;
-				animation-duration:        1s;
-				animation-fill-mode:       both;
-
-				//font-size: 125%; //FIXME: make this bigger without affecting the line's height
+				animation-duration: 1s;
+				animation-fill-mode: both;
 			}
 		}
 	}
