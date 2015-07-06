@@ -7,6 +7,7 @@ Then just `runTerminal()` on a jQuery object to kick it off, i.e. `runTerminal($
 
 See [terminal.mustache](https://github.com/cassidyjames/terminal.js/blob/master/terminal.mustache) for example HTML, or a [demo implementation here](http://cassidyjames.github.io/terminal.js/).
 
+
 ## Data Attributes
 
 On the container:
@@ -23,3 +24,10 @@ On each span:
   * string: the text to output
 * `data-terminal-time`
   * integer: How long to wait in milliseconds after the previous step starts. Account for 200ms/character in the previous message if it was `data-terminal="text"`
+
+
+## Featured at:
+
+* system76.com/laptops/galago
+* system76.com/servers
+* snwh.org/fsck/
