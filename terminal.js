@@ -1,25 +1,29 @@
 /* terminal.js by Cassidy James <c@ssidyjam.es> for System76.com */
+$default_delay = 200;
 
 function runTerminal($terminal) {
   if( ! $terminal.data('terminalPrompt').length ) {
     $terminal.data('terminalPrompt','$ ');
   }
 
-  runTerminalLine($terminal.find('[data-terminal]:first'), $terminal);
+  runTerminalLine($terminal.find('[data-terminal]:first'), $terminal, $default_delay);
 }
 
-function runTerminalLine($line, $terminal) {
+function runTerminalLine($line, $terminal, $delay) {
   if( $line.data('terminalMessage') == "prompt" ) {
     $line.data('terminalMessage', $terminal.data('terminalPrompt'));
+  }
+  if( $line.data('terminalTime').length ) {
+    $delay = parseInt($line.data('terminalTime'));
   }
   if( $line.data('terminal') == "line" ) {
     setTimeout(function () {
       runTerminalLinePrint($line, $terminal);
-    }, parseInt($line.data('terminalTime')) );
+    }, $delay )
   } else {
     setTimeout(function () {
       runTerminalLineType($line, $terminal);
-    }, parseInt($line.data('terminalTime')) );
+    }, $delay);
   }
 }
 
@@ -33,7 +37,7 @@ function runTerminalLinePrint($line, $terminal) {
 
   $nextLine = $line.next('[data-terminal]');
   if( $nextLine.length ) {
-    runTerminalLine($nextLine, $terminal);
+    runTerminalLine($nextLine, $terminal, $default_delay);
   }
 }
 
@@ -61,6 +65,6 @@ function runTerminalLineType($line, $terminal, $target, index) {
 
   $nextLine = $line.next('[data-terminal]');
   if( $nextLine.length ) {
-    runTerminalLine($nextLine, $terminal);
+    runTerminalLine($nextLine, $terminal, message.length*$default_delay);
   }
 }
