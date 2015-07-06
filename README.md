@@ -5,7 +5,7 @@ This is a project I wrote (and [@funnylookinhat](https://github.com/funnylookinh
 
 Then just `runTerminal()` on a jQuery object to kick it off, i.e. `runTerminal($('#terminal'))`.
 
-See [terminal.mustache](https://github.com/cassidyjames/terminal.js/blob/master/terminal.mustache) for example HTML.
+See [terminal.mustache](https://github.com/cassidyjames/terminal.js/blob/master/terminal.mustache) for example HTML, or a [demo implementation here](http://cassidyjames.github.io/terminal.js/).
 
 ## Data Attributes
 
@@ -19,7 +19,7 @@ On each span:
 * `data-terminal`
   * string `"text"` (default): type out the message on the currently-last line
   * string `"line"`: echo the whole line at once on a new line
-* `data-terminal-message`: 
+* `data-terminal-message`:
   * string: the text to output
 * `data-terminal-time`
   * integer: How long to wait in milliseconds after the previous step starts. Account for 200ms/character in the previous message if it was `data-terminal="text"`
