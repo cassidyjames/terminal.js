@@ -89,6 +89,6 @@ function runTerminalLineType($line, $terminal, $target, index) {
 
   $nextLine = $line.next('[data-terminal]');
   if( $nextLine.length ) {
-    runTerminalLine($nextLine, $terminal, message.length*$defaultDelay);
+    runTerminalLine($nextLine, $terminal, $defaultDelay);
   }
 }
